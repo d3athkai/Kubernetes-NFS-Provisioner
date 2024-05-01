@@ -24,9 +24,9 @@ To setup NFS Provisioner RBAC and Deployment for a namespace:
 1. Update the *\<NAMESPACE\>* in **base/kustomization.yaml**
 2. Update the *<NFS_SERVER_IP>* & *<NFS_SHARE>* in **overlays/prod/nfs-provisioner-deployment.yaml**
 3. Verify the output manifests to be applied:  
-   `kubectl kustomize <path-to>/nfs-provisioner/overlays/prod`
+   `kubectl kustomize  <path-to-main-folder>/overlays/prod`
 4. Apply the manifests:  
-   `kubectl kustomize <path-to>/nfs-provisioner/overlays/prod | kubectl apply -f -`
+   `kubectl kustomize <path-to-main-folder>/overlays/prod | kubectl apply -f -`
 5. Test Persistent Volume Claim:  
    `kubectl apply -f nfs-subdir-test-claim.yaml`
 6. Verify the Persistent Volume Claim, ensure the status of the pvc is **Bound**:  
@@ -38,6 +38,6 @@ To delete NFS Provisioner RBAC and Deployment for a namespace:
 1. Update the *\<NAMESPACE\>* in **base/kustomization.yaml**
 2. Update the *<NFS_SERVER_IP>* & *<NFS_SHARE>* in **overlays/prod/nfs-provisioner-deployment.yaml**
 3. Verify the output manifests to be deleted:  
-   `kubectl kustomize nfs-subdir-external-provisioner`
+   `kubectl kustomize  <path-to-main-folder>/overlays/prod`
 4. Apply the manifests:  
-   `kubectl delete -k nfs-subdir-external-provisioner`
+   `kubectl kustomize <path-to-main-folder>/overlays/prod | kubectl delete -f -`
