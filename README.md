@@ -21,7 +21,7 @@ To delete NFS Provisioner Storage Class:
 **NOTE: Apply NFS Provisioner RBAC and Deployment for every namespace that required this NFS storage for data persistence.**  
 
 To setup NFS Provisioner RBAC and Deployment for a namespace:
-1. Update the *<NAMESPACE>* in **base/kustomization.yaml**
+1. Update the *\<NAMESPACE\>* in **base/kustomization.yaml**
 2. Update the *<NFS_SERVER_IP>* & *<NFS_SHARE>* in **overlays/prod/nfs-provisioner-deployment.yaml**
 3. Verify the output manifests to be applied:  
    `kubectl kustomize <path-to>/nfs-provisioner/overlays/prod`
@@ -35,7 +35,7 @@ To setup NFS Provisioner RBAC and Deployment for a namespace:
    `kubectl delete -f nfs-subdir-test-claim.yaml`
    
 To delete NFS Provisioner RBAC and Deployment for a namespace:
-1. Update the *<NAMESPACE>* in **base/kustomization.yaml**
+1. Update the *\<NAMESPACE\>* in **base/kustomization.yaml**
 2. Update the *<NFS_SERVER_IP>* & *<NFS_SHARE>* in **overlays/prod/nfs-provisioner-deployment.yaml**
 3. Verify the output manifests to be deleted:  
    `kubectl kustomize nfs-subdir-external-provisioner`
