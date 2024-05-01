@@ -1,0 +1,11 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-client
+provisioner: k8s-sigs.io/nfs-subdir-external-provisioner # or choose another name, must match deployment's env PROVISIONER_NAME'
+parameters:
+  onDelete: retain # retain / delete, to save or delete the directory when volume claim is removed
+  pathPattern: "${.PVC.namespace}-${.PVC.name}"
+allowVolumeExpansion: true
+reclaimPolicy: Delete # Retain / Delete (default), to auto retain or delete persistent volume
+volumeBindingMode: Immediate
