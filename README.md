@@ -28,11 +28,11 @@ To setup NFS Provisioner RBAC and Deployment for a namespace:
 4. Apply the manifests:  
    `kubectl kustomize <path-to-main-folder>/overlays/prod | kubectl apply -f -`
 5. Test Persistent Volume Claim:  
-   `kubectl apply -f nfs-subdir-test-claim.yaml`
+   `kubectl apply -f test-claim.yaml`
 6. Verify the Persistent Volume Claim, ensure the status of the pvc is **Bound**:  
    `kubectl get pvc -n <namespace>`
 7. Delete the Persistent Volume Claim:  
-   `kubectl delete -f nfs-subdir-test-claim.yaml`
+   `kubectl delete -f test-claim.yaml`
    
 To delete NFS Provisioner RBAC and Deployment for a namespace:
 1. Update the *\<NAMESPACE\>* in **base/kustomization.yaml**
